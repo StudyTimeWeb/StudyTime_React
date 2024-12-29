@@ -7,7 +7,7 @@ import { useState } from "react";
 import HomeDating from "./Homedating";
 const Home = () => {
   const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  
+
   const today = days[new Date().getDay()];
   return (
     <>
