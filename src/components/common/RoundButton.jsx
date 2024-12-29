@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-const RoundButton = ({ style = null, text, img }) => {
+const RoundButton = ({ style = null, text, img, onClick }) => {
   return (
-    <ButtonStyle type="button" style={style}>
+    <ButtonStyle type="button" style={style} onClick={onClick}>
       <img src={img} />
       {text}
     </ButtonStyle>
@@ -11,7 +11,7 @@ const RoundButton = ({ style = null, text, img }) => {
 
 export default RoundButton;
 
-const ButtonStyle = styled.div`
+const ButtonStyle = styled.button`
   box-sizing: border-box;
   width: 6.80719rem;
   height: 3.1875rem;
@@ -26,4 +26,5 @@ const ButtonStyle = styled.div`
   justify-items: center;
   align-content: center;
   padding: 0.5rem;
+  cursor: pointer;
 `;

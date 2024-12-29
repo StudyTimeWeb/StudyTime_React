@@ -2,7 +2,7 @@ import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import styled from "styled-components";
 import TimerInnerText from "./TimerInnerText";
 
-const Timer = ({ subject, initialTime, stop }) => {
+const Timer = ({ subject, initialTime, stop, buttonTime }) => {
   return (
     <TimerContainer>
       <Absolute>
@@ -21,6 +21,7 @@ const Timer = ({ subject, initialTime, stop }) => {
               <TimerInnerText
                 subject={subject}
                 remainingTime={initialTime - remainingTime}
+                buttonTime={buttonTime}
               />
             );
           }}
