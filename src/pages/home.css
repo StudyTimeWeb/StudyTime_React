@@ -1,0 +1,73 @@
+.mainbox {
+    display : flex;
+    position: absolute; /* 자식의 absolute 배치를 위한 기준 */
+    width: 1110px; /* 원하는 너비 */
+    height: 840px; /* 원하는 높이 */
+    background-color: #EFEFEF; /* 배경색 */
+    display: flex; /* Flexbox로 자식 요소 배치 */
+    box-sizing: border-box;
+    top : 50%;
+    left : 50%;
+    transform : translate(-60%, -50%);
+    row-gap : 18px;
+    column-gap : 20px;
+}
+
+.boxstudyingfor365 {
+    width : 688px;
+    height : 341px; 
+    flex-shrink : 0;
+    border-radius : 15px; 
+    background : #FFF;
+    border : 15px; 
+    box-sizing : border-box;
+}
+
+.boxthisweektarget {
+    width : 399px; 
+    height : 341px; 
+    flex-shrink : 0;
+    box-sizing : border-box; 
+    border-radius : 15px;
+    background-color : #FFF;
+}
+
+.boxdatentime {
+    width : 688px;
+    height : 481px; 
+    border-radius : 15px; 
+    flex-shrink : 0;
+    background : #FFF;
+    box-sizing : border-box; 
+}
+
+.boxlastweek {
+    width : 399px;
+    height : 144px;
+    flex-shrink : 0;
+    border-radius : 15px; 
+    background : #FFF;
+    box-sizing : border-box; 
+}
+
+.boxlastweek {
+    width : 399px;
+    height : 144px;
+    flex-shrink : 0;
+    border-radius : 15px; 
+    background : #FFF;
+    box-sizing : border-box; 
+}
+
+
+.boxlast {
+    width : 399px;
+    height : 144px;
+    flex-shrink : 0;
+    border-radius : 15px; 
+    background : #CBE9CB;
+    border: 2px solid #50C878;
+    box-sizing : border-box; 
+}
+
+
