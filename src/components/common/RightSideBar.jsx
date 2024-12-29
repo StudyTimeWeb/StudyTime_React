@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Tag from "../Tag";
 
-const RightSideBar = ({ children, prev, next }) => {
+const RightSideBar = ({ children, prev, next, value }) => {
   const nav = useNavigate();
   const today = new Date();
   const days = ["일", "월", "화", "수", "목", "금", "토"];
@@ -35,19 +35,23 @@ const RightSideBar = ({ children, prev, next }) => {
       </ContentSection>
       <div>
         <ButtonSection>
-          <Button
-            text="이전"
-            onClick={() => {
-              nav(prev);
-            }}
-          ></Button>
-          <Button
-            text="다음"
-            style={{ backgroundColor: "#50C878" }}
-            onClick={() => {
-              nav(next);
-            }}
-          ></Button>
+          {prev && (
+            <Button
+              text="이전"
+              onClick={() => {
+                nav(prev);
+              }}
+            ></Button>
+          )}
+          {next && (
+            <Button
+              text="다음"
+              style={{ backgroundColor: "#50C878" }}
+              onClick={() => {
+                nav(next, { state: value });
+              }}
+            ></Button>
+          )}
         </ButtonSection>
       </div>
     </ColoredSideBarDiv>

@@ -78,7 +78,7 @@ function Home2() {
           ))}
         </MainSection>
       </Container>
-      <RightSideBar prev="/" next="/timer">
+      <RightSideBar prev="/" next="/timer" value={subjects}>
         <GreenSetterBox>
           <SubjectSettingBox
             title="추가할 과목 이름"
@@ -121,11 +121,12 @@ export default Home2;
 // styled-components
 
 const Container = styled.div`
-  margin-left: 116px; /* 사이드바 폭 */
+  margin-left: 116px; /* 사이드 바 폭 */
+  min-width: 100%;
+  padding: 0 143px;
   min-height: 100vh;
   position: relative;
   background-color: #f9f9f9;
-  display: block;
 `;
 
 // 제목 영역
@@ -151,16 +152,17 @@ const EmptyMessage = styled.div`
   padding: 16px;
   border-radius: 8px;
   color: #666;
+  position: fixed;
+  top: 50%;
 `;
 
 const SubjectItem = styled.div`
   position: relative;
-  margin-bottom: 16px;
-  margin-left: 180px;
+
   background-color: ${(props) => props.color || "#ddd"};
   border-radius: 8px;
   padding: 24px 20px;
-  width: 480px;
+  width: 921px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 
   display: flex;

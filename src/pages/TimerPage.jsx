@@ -9,11 +9,15 @@ import RoundButton from "../components/common/RoundButton";
 import WhiteBox from "../components/common/WhiteBox";
 import BigTextBox from "../components/common/BigTextBox";
 import styled from "styled-components";
+import { useLocation } from "react-router-dom";
 
 const TimerPage = () => {
   const [isStopped, setIsStopped] = useState(false);
   const [stopImg, setStopImg] = useState(0);
   const stopImages = [PauseBtn, PlayBtn];
+
+  const subjects = useLocation().state;
+  console.log(subjects);
   return (
     <>
       <s.PageLayout>

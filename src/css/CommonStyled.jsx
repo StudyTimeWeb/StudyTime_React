@@ -1,24 +1,20 @@
 import styled from "styled-components";
 
 export const CenterAlignedContainerDiv = styled.div`
-  width: 100%;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  align-self: center;
-  justify-self: center;
+  width: 100%;
 `;
 
 export const CenterJustifiedContainerDiv = styled.div`
   box-sizing: border-box;
   display: flex;
-  width: 100%;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  justify-self: center;
 `;
 
 export const AppGridLayout = styled.div`
