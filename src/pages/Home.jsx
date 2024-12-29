@@ -5,10 +5,16 @@ import NextIcon from "../assets/icons/home_dates_next.svg";
 import PrevIcon from "../assets/icons/home_dates_previous.svg";
 import { useState } from "react";
 import HomeDating from "./Homedating";
+import TimeSettigBox from "./../components/common/TimeSettingBox";
+import GreenSetterBox from "./../components/common/GeenSetterBox";
+
 const Home = () => {
   const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-
+  const [studyHour, setStudyHour] = useState("5");
+  const [studyMin, setStudyMin] = useState("30");
+  const [studySec, setStudySec] = useState("00");
   const today = days[new Date().getDay()];
+
   return (
     <>
       <s.PageLayout>
@@ -29,7 +35,20 @@ const Home = () => {
             </Row>
           </MainBox>
         </Container>
-        <RightSideBar next="/2"></RightSideBar>
+        <RightSideBar next="/2">
+          <GreenSetterBox>
+            <TimeSettigBox
+              title="오늘 총 공부 시간"
+              small="휴식을 제외한 목표 시간을 설정해주세요."
+              hour={studyHour}
+              min={studyMin}
+              sec={studySec}
+              setHour={setStudyHour}
+              setMin={setStudyMin}
+              setSec={setStudySec}
+            ></TimeSettigBox>
+          </GreenSetterBox>
+        </RightSideBar>
       </s.PageLayout>
       <Container>
         <MainBox>
