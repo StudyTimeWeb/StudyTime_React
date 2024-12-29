@@ -2,16 +2,16 @@ import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import styled from "styled-components";
 import TimerInnerText from "./TimerInnerText";
 
-const Timer = ({ subject, initialTime, stop }) => {
+const Timer = ({ subject, initialTime, stop, buttonTime }) => {
   return (
     <TimerContainer>
       <Absolute>
         <CountdownCircleTimer
+          key={initialTime} 
           isPlaying={!stop}
-          isGrowing
           duration={initialTime}
           colors={["#01D281", "#01D281"]}
-          colorsTime={[initialTime / 2, 5, 0]}
+          colorsTime={[initialTime, initialTime / 2, 5, 0]}
           rotation="counterclockwise"
           size={438}
           strokeWidth={15}
@@ -20,7 +20,8 @@ const Timer = ({ subject, initialTime, stop }) => {
             return (
               <TimerInnerText
                 subject={subject}
-                remainingTime={initialTime - remainingTime}
+                remainingTime={remainingTime}
+                buttonTime={buttonTime}
               />
             );
           }}
@@ -29,7 +30,6 @@ const Timer = ({ subject, initialTime, stop }) => {
     </TimerContainer>
   );
 };
-
 export default Timer;
 const TimerContainer = styled.div`
   position: relative;

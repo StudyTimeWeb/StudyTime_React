@@ -11,13 +11,19 @@ import BigTextBox from "../components/common/BigTextBox";
 import styled from "styled-components";
 import { useLocation } from "react-router-dom";
 
-const TimerPage = () => {
+const TimerPage = ({ subject = "국어" }) => {
   const [isStopped, setIsStopped] = useState(false);
   const [stopImg, setStopImg] = useState(0);
   const stopImages = [PauseBtn, PlayBtn];
 
   const subjects = useLocation().state;
   console.log(subjects);
+
+  const [buttonTime, setButtonTime] = useState(10);
+  const handleAddTime = () => {
+    setButtonTime((prev) => prev + 10); // +10:00 버튼 클릭시 증가
+  };
+
   return (
     <>
       <s.PageLayout>
@@ -26,6 +32,7 @@ const TimerPage = () => {
             <RoundButton
               text="10:00"
               img={AddIcon}
+              onClick={handleAddTime}
               style={{
                 backgroundColor: "#DADADA",
                 height: "7rem",
@@ -35,7 +42,12 @@ const TimerPage = () => {
                 alignSelf: "end",
               }}
             />
-            <Timer subject={"국어"} initialTime={326} stop={isStopped} />
+            <Timer
+              subject={`${subject}`}
+              initialTime={326}
+              stop={isStopped}
+              buttonTime={buttonTime}
+            />
 
             <img
               src={stopImages[stopImg]}
@@ -45,6 +57,7 @@ const TimerPage = () => {
               }}
               style={{
                 alignSelf: "end",
+                cursor: "pointer",
               }}
             />
           </s.CenterJustifiedContainerDiv>
@@ -53,10 +66,10 @@ const TimerPage = () => {
               <BigTextBox title="오늘 목표 시간" content="5시간 30분" />
             </WhiteBox>
             <WhiteBox>
-              <BigTextBox title="오늘 목표 시간" content="5시간 30분" />
+              <BigTextBox title="총 공부 시간" content="5시간 30분" />
             </WhiteBox>
             <WhiteBox>
-              <BigTextBox title="오늘 목표 시간" content="5시간 30분" />
+              <BigTextBox title={`${subject} 목표 시간`} content="5시간 30분" />
             </WhiteBox>
           </Grid>
         </s.CenterAlignedContainerDiv>
