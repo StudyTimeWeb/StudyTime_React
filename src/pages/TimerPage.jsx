@@ -16,11 +16,6 @@ const TimerPage = ({ subject = "국어" }) => {
   const [stopImg, setStopImg] = useState(0);
   const stopImages = [PauseBtn, PlayBtn];
 
-  const [buttonTime, setButtonTime] = useState(10);
-  const handleAddTime = () => {
-    setButtonTime((prev) => prev + 10); // +10:00 버튼 클릭시 증가
-  };
-
   const subjects = useLocation().state;
   console.log(subjects);
 
