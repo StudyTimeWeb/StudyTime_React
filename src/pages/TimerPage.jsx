@@ -74,6 +74,7 @@ const TimerPage = ({ subject = "국어" }) => {
           </Grid>
         </s.CenterAlignedContainerDiv>
         <RightSideBar prev="/2" />
+        <div>{subjects.name}</div>
       </s.PageLayout>
     </>
   );

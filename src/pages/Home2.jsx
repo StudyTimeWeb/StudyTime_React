@@ -145,6 +145,9 @@ const PageTitle = styled.h1`
 /** 메인 영역(과목 박스 리스트) */
 const MainSection = styled.div`
   padding-right: 520px; /* 우측 패널 폭(480)보다 조금 넉넉히 */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 `;
 
 const EmptyMessage = styled.div`
@@ -182,6 +185,9 @@ const BreakBox = styled.div`
   border-radius: 4px;
   color: #555;
   font-size: 14px;
+  position: absolute;
+  bottom: -1rem;
+  right: 3rem;
 `;
 
 const StudyTime = styled.div`
