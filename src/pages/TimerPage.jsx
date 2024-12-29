@@ -15,10 +15,9 @@ const TimerPage = ({ subject = "국어" }) => {
   const [stopImg, setStopImg] = useState(0);
   const stopImages = [PauseBtn, PlayBtn];
 
-  const [buttonTime, setButtonTime] = useState(10); // 추가된 부분
-
+  const [buttonTime, setButtonTime] = useState(10);
   const handleAddTime = () => {
-    setButtonTime(prev => prev + 10); // +10:00 버튼 클릭시 증가
+    setButtonTime((prev) => prev + 10); // +10:00 버튼 클릭시 증가
   };
 
   return (
@@ -39,7 +38,12 @@ const TimerPage = ({ subject = "국어" }) => {
                 alignSelf: "end",
               }}
             />
-            <Timer subject={`${subject}`} initialTime={326} stop={isStopped} buttonTime={buttonTime} />
+            <Timer
+              subject={`${subject}`}
+              initialTime={326}
+              stop={isStopped}
+              buttonTime={buttonTime}
+            />
 
             <img
               src={stopImages[stopImg]}
@@ -49,6 +53,7 @@ const TimerPage = ({ subject = "국어" }) => {
               }}
               style={{
                 alignSelf: "end",
+                cursor: "pointer",
               }}
             />
           </s.CenterJustifiedContainerDiv>
@@ -60,7 +65,7 @@ const TimerPage = ({ subject = "국어" }) => {
               <BigTextBox title="총 공부 시간" content="5시간 30분" />
             </WhiteBox>
             <WhiteBox>
-              <BigTextBox title= {`${subject} 목표 시간`} content="5시간 30분" />
+              <BigTextBox title={`${subject} 목표 시간`} content="5시간 30분" />
             </WhiteBox>
           </Grid>
         </s.CenterAlignedContainerDiv>
