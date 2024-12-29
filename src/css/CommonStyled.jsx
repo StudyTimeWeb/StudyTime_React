@@ -62,5 +62,4 @@ export const PageLayout = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin: 2rem 0;
 `;

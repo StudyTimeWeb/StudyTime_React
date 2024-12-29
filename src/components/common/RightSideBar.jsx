@@ -9,7 +9,7 @@ import Tag from "../Tag";
 const RightSideBar = ({ children, prev, next }) => {
   const nav = useNavigate();
   const today = new Date();
-  const days = ["월", "화", "수", "목", "금", "토", "일"];
+  const days = ["일", "월", "화", "수", "목", "금", "토"];
   const [sideBarClosed, setSideBarClosed] = useState(false);
   return (
     <ColoredSideBarDiv
@@ -27,7 +27,7 @@ const RightSideBar = ({ children, prev, next }) => {
         <h3 style={{ margin: "0" }}>
           {`${today.getFullYear()}년 ${
             today.getMonth() + 1
-          }월 ${today.getDate()}일 ${days[today.getDay() - 1]}요일`}
+          }월 ${today.getDate()}일 ${days[today.getDay()]}요일`}
         </h3>
         <TagSection>
           <Tag />
@@ -70,7 +70,7 @@ const ColoredSideBarDiv = styled.div`
   max-width: 30rem;
   min-width: fit-content;
   min-height: 100vh;
-  height: 100%;
+  height: 100vh;
   flex-shrink: 0;
   background: #fff;
   padding: 5.25rem 2.8rem;
