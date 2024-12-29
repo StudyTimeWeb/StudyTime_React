@@ -1,0 +1,21 @@
+@font-face {
+  font-family: "PretendardVariable";
+  src: url("/PretendardVariable.ttf");
+}
+
+
+body * {
+  font-family: "PretendardVariable";
+}
+
+html, body {
+  margin: 0;
+  background-color: #EFEFEF;
+}
+
+#root {
+  background-color: #EFEFEF;
+  /* min-height: 100vh; */
+  height: 100%;
+  margin: 0 auto;
+}
