@@ -3,7 +3,7 @@ import * as s from "./../../css/CommonStyled";
 import RoundButton from "../common/RoundButton";
 import alertIcon from "./../../assets/icons/timer/AlertIcon.svg";
 
-const TimerInnerText = ({ subject, remainingTime }) => {
+const TimerInnerText = ({ subject, remainingTime, buttonTime }) => {
   const hour = Math.floor(remainingTime / 3600);
   const min = Math.floor(remainingTime / 60);
   const sec = remainingTime % 60;
@@ -15,7 +15,7 @@ const TimerInnerText = ({ subject, remainingTime }) => {
         {String(sec).padStart(2, "0")}
       </Time>
       <RoundButton
-        text="10:00"
+        text={`${buttonTime}:00`}
         style={{ background: "#E6E6E6" }}
         img={alertIcon}
       />
