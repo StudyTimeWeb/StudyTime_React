@@ -47,7 +47,6 @@ const DayBox = styled.div`
   color: ${(props) => (props.isSelected ? "#fff" : "#333")};
   border-radius: 10px;
   font-size: 14px;
-  font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
 
