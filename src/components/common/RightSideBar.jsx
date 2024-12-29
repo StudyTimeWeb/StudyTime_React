@@ -1,4 +1,3 @@
-import * as s from "../../css/CommonStyled";
 import styled from "styled-components";
 import Button from "./Button";
 import closeIcon from "./../../assets/icons/button/CloseIcon.svg";
@@ -35,7 +34,6 @@ const RightSideBar = ({ children, prev, next }) => {
         <ChildrenContainer>{children}</ChildrenContainer>
       </ContentSection>
       <div>
-        <div style={{ border: "1px solid #D8D8D8", margin: "1.5rem 0" }}></div>
         <ButtonSection>
           <Button
             text="이전"
@@ -73,7 +71,7 @@ const ColoredSideBarDiv = styled.div`
   height: 100vh;
   flex-shrink: 0;
   background: #fff;
-  padding: 5.25rem 2.8rem;
+  padding: 5.25rem 2.8rem 0 2.8rem;
   transform: ${(props) =>
     props.isClosed ? `translatex(92%)` : `translatex(0%)`};
   transition: transform 0.4s ease-in-out;
@@ -87,7 +85,6 @@ const TagSection = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
-  margin-bottom: 1.6rem;
 `;
 const ChildrenContainer = styled.div`
   display: flex;
@@ -99,6 +96,7 @@ const ChildrenContainer = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
+  overflow-y: scroll;
 `;
 const CloseBtn = styled.div`
   position: absolute;
@@ -114,9 +112,16 @@ const ContentSection = styled.div`
   gap: 1.62rem;
 `;
 const ButtonSection = styled.div`
+  box-sizing: border-box;
+  padding: 1.5rem 0;
+
   display: flex;
+  width: 100%;
+  border-top: 1px solid gray;
   justify-self: end;
+  align-self: end;
   flex-direction: row;
   justify-content: end;
+  align-items: end;
   gap: 0.54rem;
 `;

@@ -5,6 +5,7 @@ import RightSideBar from "../components/common/RightSideBar";
 import SubjectSettingBox from "./../components/common/SubjectSettingBox";
 import GreenSetterBox from "./../components/common/GeenSetterBox";
 import TimeSettigBox from "./../components/common/TimeSettingBox";
+import Button from "./../components/common/Button";
 
 function Home2() {
   const [subjects, setSubjects] = useState([]);
@@ -77,7 +78,7 @@ function Home2() {
           ))}
         </MainSection>
       </Container>
-      <RightSideBar next="/timer">
+      <RightSideBar prev="/" next="/timer">
         <GreenSetterBox>
           <SubjectSettingBox
             title="추가할 과목 이름"
@@ -94,21 +95,22 @@ function Home2() {
             setSec={setStudySec}
           ></TimeSettigBox>
         </GreenSetterBox>
-        <TimeSettigBox
-          title="휴식 시간 설정"
-          hour={studyHour}
-          min={studyMin}
-          sec={studySec}
-          setHour={setStudyHour}
-          setMin={setStudyMin}
-          setSec={setStudySec}
-        ></TimeSettigBox>
-        <AddBtn onClick={handleAddSubject}>추가</AddBtn>
-
-        <BottomButtons>
-          <GrayBtn>이전</GrayBtn>
-          <GreenBtn>시작</GreenBtn>
-        </BottomButtons>
+        <GreenSetterBox>
+          <TimeSettigBox
+            title="휴식 시간 설정"
+            hour={breakHour}
+            min={breakMin}
+            sec={breakSec}
+            setHour={setBreakHour}
+            setMin={setBreakMin}
+            setSec={setBreakSec}
+          ></TimeSettigBox>
+        </GreenSetterBox>
+        <Button
+          text="추가"
+          style={{ alignSelf: "end", backgroundColor: "#CBE9CB" }}
+          onClick={handleAddSubject}
+        />
       </RightSideBar>
     </s.PageLayout>
   );
