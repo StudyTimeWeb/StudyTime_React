@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import * as s from "./../css/CommonStyled";
+import RightSideBar from "../components/common/RightSideBar";
+import SubjectSettingBox from "./../components/common/SubjectSettingBox";
+import GreenSetterBox from "./../components/common/GeenSetterBox";
+import TimeSettigBox from "./../components/common/TimeSettingBox";
 
 function Home2() {
   const [subjects, setSubjects] = useState([]);
@@ -16,7 +21,13 @@ function Home2() {
   // 과목 추가
   const handleAddSubject = () => {
     // 파스텔톤 색상 예시
-    const colorPalette = ["#d8f3dc", "#fcd5ce", "#caf0f8", "#fff3b0", "#e2e2e2"];
+    const colorPalette = [
+      "#d8f3dc",
+      "#fcd5ce",
+      "#caf0f8",
+      "#fff3b0",
+      "#e2e2e2",
+    ];
     const randomColor =
       colorPalette[Math.floor(Math.random() * colorPalette.length)];
 
@@ -44,101 +55,62 @@ function Home2() {
   };
 
   return (
-    <Container>
-      <TitleArea>
-        <PageTitle>과목별 시간 설정하기</PageTitle>
-      </TitleArea>
+    <s.PageLayout>
+      <Container>
+        <TitleArea>
+          <PageTitle>과목별 시간 설정하기</PageTitle>
+        </TitleArea>
 
-      <MainSection>
-        {subjects.length === 0 && (
-          <EmptyMessage>
-            아직 등록된 과목이 없습니다. 우측에서 과목을 추가해주세요.
-          </EmptyMessage>
-        )}
-        {subjects.map((subj, idx) => (
-          <SubjectItem key={idx} color={subj.color}>
-            <SubjectName>{subj.name}</SubjectName>
-            <BreakBox>휴식 {subj.breakTime}</BreakBox>
-            <StudyTime>{subj.studyTime}</StudyTime>
-            <DeleteBtn onClick={() => handleDeleteSubject(idx)}>X</DeleteBtn>
-          </SubjectItem>
-        ))}
-      </MainSection>
-
-      <RightPanel>
-        <HeaderBox>
-          <DateText>2024년 12월 26일 목요일</DateText>
-          <SubInfo>중간고사까지 D-30 +버튼</SubInfo>
-        </HeaderBox>
-
-        <GreenPanel>
-          <PanelTitle>추가할 과목 이름</PanelTitle>
-          <Input
-            type="text"
-            placeholder="과목명"
-            value={newSubjectName}
+        <MainSection>
+          {subjects.length === 0 && (
+            <EmptyMessage>
+              아직 등록된 과목이 없습니다. 우측에서 과목을 추가해주세요.
+            </EmptyMessage>
+          )}
+          {subjects.map((subj, idx) => (
+            <SubjectItem key={idx} color={subj.color}>
+              <SubjectName>{subj.name}</SubjectName>
+              <BreakBox>휴식 {subj.breakTime}</BreakBox>
+              <StudyTime>{subj.studyTime}</StudyTime>
+              <DeleteBtn onClick={() => handleDeleteSubject(idx)}>X</DeleteBtn>
+            </SubjectItem>
+          ))}
+        </MainSection>
+      </Container>
+      <RightSideBar next="/timer">
+        <GreenSetterBox>
+          <SubjectSettingBox
+            title="추가할 과목 이름"
             onChange={(e) => setNewSubjectName(e.target.value)}
-          />
-
-          <PanelTitle>시간 설정</PanelTitle>
-          <TimeRow>
-            <select value={studyHour} onChange={(e) => setStudyHour(e.target.value)}>
-              {Array.from({ length: 24 }, (_, i) => (
-                <option key={i} value={String(i)}>
-                  {i}시간
-                </option>
-              ))}
-            </select>
-            <select value={studyMin} onChange={(e) => setStudyMin(e.target.value)}>
-              {Array.from({ length: 60 }, (_, i) => (
-                <option key={i} value={String(i)}>
-                  {i}분
-                </option>
-              ))}
-            </select>
-            <select value={studySec} onChange={(e) => setStudySec(e.target.value)}>
-              {Array.from({ length: 60 }, (_, i) => (
-                <option key={i} value={String(i)}>
-                  {i}초
-                </option>
-              ))}
-            </select>
-          </TimeRow>
-
-          <PanelTitle>휴식 시간 설정</PanelTitle>
-          <TimeRow>
-            <select value={breakHour} onChange={(e) => setBreakHour(e.target.value)}>
-              {Array.from({ length: 24 }, (_, i) => (
-                <option key={i} value={String(i)}>
-                  {i}시간
-                </option>
-              ))}
-            </select>
-            <select value={breakMin} onChange={(e) => setBreakMin(e.target.value)}>
-              {Array.from({ length: 60 }, (_, i) => (
-                <option key={i} value={String(i)}>
-                  {i}분
-                </option>
-              ))}
-            </select>
-            <select value={breakSec} onChange={(e) => setBreakSec(e.target.value)}>
-              {Array.from({ length: 60 }, (_, i) => (
-                <option key={i} value={String(i)}>
-                  {i}초
-                </option>
-              ))}
-            </select>
-          </TimeRow>
-
-          <AddBtn onClick={handleAddSubject}>추가</AddBtn>
-        </GreenPanel>
+            value={newSubjectName}
+          ></SubjectSettingBox>
+          <TimeSettigBox
+            title="시간 설정"
+            hour={studyHour}
+            min={studyMin}
+            sec={studySec}
+            setHour={setStudyHour}
+            setMin={setStudyMin}
+            setSec={setStudySec}
+          ></TimeSettigBox>
+        </GreenSetterBox>
+        <TimeSettigBox
+          title="휴식 시간 설정"
+          hour={studyHour}
+          min={studyMin}
+          sec={studySec}
+          setHour={setStudyHour}
+          setMin={setStudyMin}
+          setSec={setStudySec}
+        ></TimeSettigBox>
+        <AddBtn onClick={handleAddSubject}>추가</AddBtn>
 
         <BottomButtons>
           <GrayBtn>이전</GrayBtn>
           <GreenBtn>시작</GreenBtn>
         </BottomButtons>
-      </RightPanel>
-    </Container>
+      </RightSideBar>
+    </s.PageLayout>
   );
 }
 
@@ -151,20 +123,19 @@ const Container = styled.div`
   min-height: 100vh;
   position: relative;
   background-color: #f9f9f9;
-  padding: 24px;
-  display: block; 
+  display: block;
 `;
 
-// 제목 영역 
+// 제목 영역
 const TitleArea = styled.div`
-  margin-bottom: 32px; 
+  margin-bottom: 32px;
 `;
 
 const PageTitle = styled.h1`
   font-size: 24px;
   font-weight: bold;
   color: #333;
-  margin-top: 40px;  
+  margin-top: 40px;
   margin-bottom: 0;
 `;
 
@@ -183,12 +154,12 @@ const EmptyMessage = styled.div`
 const SubjectItem = styled.div`
   position: relative;
   margin-bottom: 16px;
-  margin-left:  180px;
+  margin-left: 180px;
   background-color: ${(props) => props.color || "#ddd"};
   border-radius: 8px;
   padding: 24px 20px;
   width: 480px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 
   display: flex;
   align-items: center;
@@ -219,7 +190,7 @@ const StudyTime = styled.div`
 
 const DeleteBtn = styled.button`
   position: absolute;
-  top: 50%; 
+  top: 50%;
   transform: translateY(-50%);
   right: 16px;
   background: #ff6666;

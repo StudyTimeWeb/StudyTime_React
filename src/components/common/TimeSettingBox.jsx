@@ -1,6 +1,15 @@
 import styled from "styled-components";
 
-const TimeSettingBox = ({ small, title }) => {
+const TimeSettingBox = ({
+  small,
+  title,
+  hour,
+  min,
+  sec,
+  setHour,
+  setMin,
+  setSec,
+}) => {
   return (
     <div>
       <Exp>
@@ -8,9 +17,27 @@ const TimeSettingBox = ({ small, title }) => {
         {small && <small style={{ color: "#797979" }}>{small}</small>}
       </Exp>
       <SelectionGrid>
-        <Select></Select>
-        <Select></Select>
-        <Select></Select>
+        <Select value={hour} onChange={(e) => setHour(e.target.value)}>
+          {Array.from({ length: 24 }, (_, i) => (
+            <option key={i} value={String(i)}>
+              {i}
+            </option>
+          ))}
+        </Select>
+        <Select value={min} onChange={(e) => setMin(e.target.value)}>
+          {Array.from({ length: 60 }, (_, i) => (
+            <option key={i} value={String(i)}>
+              {i}
+            </option>
+          ))}
+        </Select>
+        <Select value={sec} onChange={(e) => setSec(e.target.value)}>
+          {Array.from({ length: 60 }, (_, i) => (
+            <option key={i} value={String(i)}>
+              {i}분
+            </option>
+          ))}
+        </Select>
         <div style={{ justifySelf: "right" }}>시간</div>
         <div style={{ justifySelf: "right" }}>분</div>
         <div style={{ justifySelf: "right" }}>초</div>

@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
-const SubjectSettingBox = ({ small, title }) => {
+const SubjectSettingBox = ({ small, title, onChange, value }) => {
   return (
     <div>
       <Exp>
         <h3 style={{ margin: "0", padding: "0" }}>{title}</h3>
         {small && <small style={{ color: "#797979" }}>{small}</small>}
       </Exp>
-      <InputDiv placeholder="과목 이름" />
+      <InputDiv placeholder="과목 이름" value={value} onChange={onChange} />
     </div>
   );
 };

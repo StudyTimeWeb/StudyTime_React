@@ -1,26 +1,31 @@
 import styled from "styled-components";
+import * as s from "./../css/CommonStyled";
 import "./home.css";
+import RightSideBar from "../components/common/RightSideBar";
 
 const Home = () => {
   return (
     <>
-      <Container>
-        <MainBox>
-          <BoxStudyingFor365>365일 간 총 공부 시간</BoxStudyingFor365>
-          <BoxThisWeekTarget>이번 주 목표 달성률</BoxThisWeekTarget>
-          <Row>
-            <BoxDateNTime>
-              <BoxDates></BoxDates>
-              <BoxTimes></BoxTimes>
-            </BoxDateNTime>
-            <LastBoxesContainer>
-              <BoxLastWeek>지난 주 평균 공부 시간</BoxLastWeek>
-              <BoxThisWeek>이번 주 평균 공부 시간</BoxThisWeek>
-              <BoxLast>오늘도 한 걸음씩 시작해볼까요?</BoxLast>
-            </LastBoxesContainer>
-          </Row>
-        </MainBox>
-      </Container>
+      <s.PageLayout>
+        <Container>
+          <MainBox>
+            <BoxStudyingFor365>365일 간 총 공부 시간</BoxStudyingFor365>
+            <BoxThisWeekTarget>이번 주 목표 달성률</BoxThisWeekTarget>
+            <Row>
+              <BoxDateNTime>
+                <BoxDates></BoxDates>
+                <BoxTimes></BoxTimes>
+              </BoxDateNTime>
+              <LastBoxesContainer>
+                <BoxLastWeek>지난 주 평균 공부 시간</BoxLastWeek>
+                <BoxThisWeek>이번 주 평균 공부 시간</BoxThisWeek>
+                <BoxLast>오늘도 한 걸음씩 시작해볼까요?</BoxLast>
+              </LastBoxesContainer>
+            </Row>
+          </MainBox>
+        </Container>
+        <RightSideBar next="/2"></RightSideBar>
+      </s.PageLayout>
     </>
   );
 };
