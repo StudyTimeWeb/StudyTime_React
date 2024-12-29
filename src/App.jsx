@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Sidebar from "./components/Sidebar";
 import RightPanel from "./components/RightPanel";
 import TimerPage from "./pages/TimerPage";
+import Home2 from "./pages/Home2";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/timer" element={<TimerPage />} />
         <Route path="/" element={<Home />} />
+        <Route path="/2" element={<Home2 />} />
       </Routes>
     </>
   );
